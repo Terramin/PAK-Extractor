@@ -1,0 +1,22 @@
+[package]
+name = "pak2folder"
+version = "0.1.0"
+edition = "2024"
+authors = ["Terramin"]
+description = "Fast .PAK (MDPK) unpacker with drag & drop support"
+
+[profile.release]
+opt-level = 'z'
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+debug = false
+overflow-checks = false
+
+[dependencies]
+bzip2 = "0.6.1"
+brotli = "8.0.4"
+clap = { version = "4.5", features = ["derive"] }
+rayon = "1.12.0"
+tokio = { version = "1.52.3", features = ["full"] }
